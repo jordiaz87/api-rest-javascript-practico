@@ -14,10 +14,12 @@ async function getTrendingMoviesPreview() {
 
 
     const movies = data.results;
+
+    trendingMoviesPreviewList.innerHTML = "";
     
     movies.forEach(movie => {
 
-        const trendingMoviesPreviewList = document.querySelector('#trendingPreview .trendingPreview-movieList')
+       
 
         const movieContainer = document.createElement('div');
         movieContainer.classList.add('movie-container');
@@ -41,10 +43,10 @@ async function getCategoriesPreview() {
     const { data } = await api('genre/movie/list');
   
     const categories = data.genres;
+
+    categoriesPreviewList.innerHTML = "";
     
     categories.forEach(category => {
-
-        const categoriesPreviewList = document.querySelector('#categoriesPreview .categoriesPreview-list')
 
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('category-container');
