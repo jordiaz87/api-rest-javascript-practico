@@ -30,6 +30,8 @@ function navigator() {
     } else {
         homePage();
     }
+
+    document.documentElement.scrollTop = 0;
     
 }
 
