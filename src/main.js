@@ -12,8 +12,10 @@ const api = axios.create({
 // Utils
 
 function createMovies (movies, container) {
-    container.innerHtml = '';
-
+  
+    container.innerHTML = " ";
+  
+    
     movies.forEach(movie => {
         const movieContainer = document.createElement('div');
         movieContainer.classList.add('movie-container');
@@ -31,7 +33,8 @@ function createMovies (movies, container) {
 
 function createCategories (categories, container) {
 
-    container.innerHtml = "";
+    container.innerHTML = " ";
+  
 
     categories.forEach(category => {
 
@@ -82,4 +85,14 @@ async function getMoviesByCategory(id) {
     createMovies(movies, genericSection);
 }
 
+async function getMoviesBySearch(query) {
+   
+    const { data } = await api('search/movie', {
+        params: {
+            query, 
+        },
+    });
+    const movies = data.results;
+    createMovies(movies, genericSection);
+}
 
